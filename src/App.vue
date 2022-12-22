@@ -1,13 +1,12 @@
 <template>
-  <ul v-if="results">
-      <li v-for="trader in results.traders" :key="trader.id"><h1>{{ trader.name }}</h1>{{ trader.description }}</li>
-    </ul>
-    <button :disabled="!results" @click="onGetTraders">Click me</button>
+  <NavBar />
+  <router-view></router-view>
 </template>
 
 <script>
-  import { useQuery } from '@urql/vue';
-  import proxyHelper from './helpers/proxyHelper'
+  // import { useQuery } from '@urql/vue';
+  // import proxyHelper from './helpers/proxyHelper'
+  import NavBar from './components/NavBar.vue'
   export default {
     data() {
       return {
@@ -15,25 +14,28 @@
         rawObj: null
       }
     },
-    methods: {
-      onGetTraders() {
-        console.log(proxyHelper(this.results.traders))
-      }
+    components: {
+      NavBar
     },
-    created() {
-      const res  = useQuery({
-        query:`
-        {
-          traders {
-            id
-            name
-            description
-          }
-        }
-        `
-      })
-      this.results = res.data
-    }
+    methods: {
+      // onGetTraders() {
+      //   console.log(proxyHelper(this.results.traders))
+      // }
+    },
+    // created() {
+    //   const res  = useQuery({
+    //     query:`
+    //     {
+    //       traders {
+    //         id
+    //         name
+    //         description
+    //       }
+    //     }
+    //     `
+    //   })
+    //   this.results = res.data
+    // }
   }
 </script>
 
