@@ -4,8 +4,6 @@
 </template>
 
 <script>
-  // import { useQuery } from '@urql/vue';
-  // import proxyHelper from './helpers/proxyHelper'
   import NavBar from './components/NavBar.vue'
   export default {
     data() {
@@ -17,25 +15,6 @@
     components: {
       NavBar
     },
-    methods: {
-      // onGetTraders() {
-      //   console.log(proxyHelper(this.results.traders))
-      // }
-    },
-    // created() {
-    //   const res  = useQuery({
-    //     query:`
-    //     {
-    //       traders {
-    //         id
-    //         name
-    //         description
-    //       }
-    //     }
-    //     `
-    //   })
-    //   this.results = res.data
-    // }
   }
 </script>
 
