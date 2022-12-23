@@ -23,6 +23,7 @@
 @font-face {font-family: BenderBold; src: url('./assets/fonts/Bender/Jovanny\ Lemonad\ -\ Bender-Bold.otf')}
 #app {
   font-family: Bender, Helvetica, Arial, sans-serif;
+   color: #9a8866;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

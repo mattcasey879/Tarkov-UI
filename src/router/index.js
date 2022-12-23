@@ -1,6 +1,6 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 import LandingPage from "../views/LandingPage";
-import TradersItem from '../views/TradersItem'
+import TradersItem from '../components/TradersItem'
 
 const routes = [
   { 

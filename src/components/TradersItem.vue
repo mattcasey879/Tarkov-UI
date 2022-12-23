@@ -3,7 +3,7 @@
     <div v-if="!results">
         Loading...
     </div>
-    <div v-if="results">
+    <div class="trader-container" v-if="results">
         <div class="trader" v-for="trader in results.traders" :key="trader.id">
             <TraderItem :trader="trader" />
         </div>
@@ -13,7 +13,7 @@
 
 <script>
    import { useQuery } from '@urql/vue';
-   import  TraderItem  from '../components/TraderItem.vue'
+   import  TraderItem  from './TraderItem.vue'
     export default {
         name: 'TradersItem',
         components: {
@@ -33,6 +33,7 @@
                             id 
                             name
                             description
+                            normalizedName
                         }
                     }
                 `,
@@ -42,3 +43,16 @@
         },
     }
 </script>
+
+
+<style>
+.trader-container {
+    display: flex;
+    align-content: center;
+    flex-wrap: wrap;
+}
+
+.trader {
+    width: 20%;
+}
+</style>
