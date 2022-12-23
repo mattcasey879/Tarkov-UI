@@ -1,58 +1,38 @@
 <template>
-
-    <div v-if="!results">
-        Loading...
+  <div v-if="!results">Loading...</div>
+  <div class="trader-container" v-if="results">
+    <div v-for="trader in results.traders" :key="trader.id">
+      <TraderItem :trader="trader" />
     </div>
-    <div class="trader-container" v-if="results">
-        <div class="trader" v-for="trader in results.traders" :key="trader.id">
-            <TraderItem :trader="trader" />
-        </div>
-    </div>
+  </div>
 </template>
 
-
 <script>
-   import { useQuery } from '@urql/vue';
-   import  TraderItem  from './TraderItem.vue'
-    export default {
-        name: 'TradersItem',
-        components: {
-             TraderItem,
-        },
+import TraderItem from "./TraderItem.vue";
+import { TraderService } from "../services/trader.service";
+export default {
+  name: "TradersItem",
+  components: {
+    TraderItem,
+  },
 
-        data() {
-            return {
-                results: null,
-            }
-        },
-        created() {
-            const res = useQuery({
-                query: `
-                    {
-                        traders {
-                            id 
-                            name
-                            description
-                            normalizedName
-                        }
-                    }
-                `,
-                
-            })
-             this.results = res.data
-        },
-    }
+  data() {
+    return {
+      results: null,
+    };
+  },
+  created() {
+    this.results = TraderService.getTraders();
+  },
+};
 </script>
-
 
 <style>
 .trader-container {
-    display: flex;
-    align-content: center;
-    flex-wrap: wrap;
-}
-
-.trader {
-    width: 20%;
+  margin: 8rem;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
 }
 </style>

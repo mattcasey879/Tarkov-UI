@@ -1,5 +1,5 @@
 <template>
     <div>
-        <h1>Landing Connected</h1>
+        <h1>Landing Page not Yet implemented</h1>
     </div>
 </template>
